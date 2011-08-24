@@ -19,7 +19,7 @@ set autoindent
 set shiftwidth=2
 set ruler
 set number
-set guifont=Menlo\ Regular:h14
+set guifont=Monaco:h12
 set noexpandtab
 set list
 set spell
@@ -42,12 +42,12 @@ endif
 " Colors
 syntax enable
 if has('gui_running')
-    set background=light
+    set background=dark
 else
     set background=dark
 endif
 set background=dark
-colorscheme solarized
+colorscheme twilight
 
 filetype plugin on
 
@@ -90,6 +90,9 @@ map <leader>z :tabedit! ~/.zshrc<cr>
 
 " add json syntax highlighting
 au BufNewFile,BufRead *.json set ft=javascript
+
+" add c++ highlighting to arduino projects
+au BufNewFile,BufRead *.pde set ft=arduino
 
 " Update appcelerator head name space to the short form
 autocmd FileType javascript nmap <leader>r :%s/Titanium/Ti/ge<CR>
