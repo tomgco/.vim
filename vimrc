@@ -1,6 +1,17 @@
 set nocompatible
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
+
+"Omni stuff
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" Linting
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_check_on_open = 1
 
 set laststatus=2
 
@@ -11,16 +22,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)
 
-" No menu or toolbar
-set guioptions=egr
-
 set tabstop=2
-set autoindent
 set shiftwidth=2
+set autoindent
+set expandtab
+
 set ruler
 set number
-set guifont=Monaco:h12
-set noexpandtab
+
 set list
 set spell
 set linespace=1
@@ -39,18 +48,6 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-" Colors
-syntax enable
-if has('gui_running')
-    set background=dark
-else
-    set background=dark
-endif
-set background=dark
-colorscheme twilight
-
-filetype plugin on
-
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
 let g:mapleader = ","
@@ -61,10 +58,10 @@ set listchars=tab:▸\ ,trail:☠
 nmap <leader>w :w!<cr>
 
 " Taglist toggle
-nmap <leader>n :TlistToggle<cr>
+" nmap <leader>n :TlistToggle<cr>
 
 " Remove mixed line endings
-nmap <leader>= :%s/\s*$//e<cr>:nohl<cr>
+" nmap <leader>= :%s/\s*$//e<cr>:nohl<cr>
 
 
 " Git shortcuts
@@ -94,18 +91,10 @@ au BufNewFile,BufRead *.json set ft=javascript
 " add c++ highlighting to arduino projects
 au BufNewFile,BufRead *.pde set ft=arduino
 
-" Update appcelerator head name space to the short form
-autocmd FileType javascript nmap <leader>r :%s/Titanium/Ti/ge<CR>
-
 autocmd! FileType javascript nmap <leader>m :!node --debug %<cr>
 autocmd! FileType vim nmap <c-m>:source %<cr>
-autocmd! FileType php nmap <leader>m :!php %<cr>
-autocmd! FileType php nmap <leader>l :!php -l %<cr>
 autocmd! BufWrite *.php,*.js,*.coffee :%s/\s\+$//e
 autocmd! BufWrite *.jade :%s/^\s\+$//e
-
-map <leader>mes :!phpmd % text codesize,unusedcode,naming,design<cr>
-"map <c-m> :make %<cr>:Errors<cr>
 
 "set hidden
 
@@ -116,15 +105,13 @@ map <leader>] :bn<cr>
 map <leader>[ :bp<cr>
 
 " Git 
-map <leader>c :Gwrite<cr>:Gcommit<cr>
+" map <leader>c :Gwrite<cr>:Gcommit<cr>
 
 " Stop arrow keys
-nmap <up> <nop>
-nmap <right> <nop>
-nmap <left> <nop>
-nmap <down> <nop>
-
-autocmd! FileType php map <c-p> :!open http://uk3.php.net/<cword><cr>
+" nmap <up> <nop>
+" nmap <right> <nop>
+" nmap <left> <nop>
+" nmap <down> <nop>
 
 " Moving lines up and down
 "
@@ -147,13 +134,12 @@ autocmd BufWinLeave * call clearmatches()
 set nofoldenable
 
 " Enable syntax highlighting
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+" let g:syntastic_enable_signs=1
+" let g:syntastic_quiet_warnings=1
 
-" CTags
-autocmd! FileType php map <leader>rt :!ctags -R -h ".php" --exclude="\.js" --exclude="\.svn" --fields=+afkst --PHP-kinds=+cf *<CR><CR>
-
-autocmd! FileType javascript map <leader>rt :!ctags -R -h ".js" .<cr><cr>
+" open files in split
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
 
 map <C-\> :tnext<CR>
 
@@ -161,6 +147,11 @@ map <C-\> :tnext<CR>
 map <D-/> <plug>NERDCommenterToggle
 imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
 
+syntax enable
+set background=dark
+colorscheme base16-eighties
+
+filetype plugin on
 
 " When vimrc is edited, reload it
 autocmd! BufWritePost vimrc source ~/.vim/vimrc
