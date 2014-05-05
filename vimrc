@@ -2,6 +2,7 @@ set nocompatible
 execute pathogen#infect()
 
 set t_Co=256
+let base16colorspace=256
 
 "Omni stuff
 set completeopt=longest,menuone
@@ -35,6 +36,7 @@ set expandtab
 
 set ruler
 set number
+set relativenumber
 set colorcolumn=80
 
 set list
