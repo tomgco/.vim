@@ -1,6 +1,8 @@
 set nocompatible
 execute pathogen#infect()
 
+set t_Co=256
+
 "Omni stuff
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -12,6 +14,9 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 " Linting
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_check_on_open = 1
+
+"NERDTree
+let g:NERDTreeShowHidden=1
 
 set laststatus=2
 
@@ -27,8 +32,10 @@ set shiftwidth=2
 set autoindent
 set expandtab
 
+
 set ruler
 set number
+set colorcolumn=80
 
 set list
 set spell
@@ -86,7 +93,7 @@ map <leader>e :tabedit! ~/.vim/vimrc<cr>
 map <leader>z :tabedit! ~/.zshrc<cr>
 
 " add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+"au BufNewFile,BufRead *.json set ft=javascript
 
 " add c++ highlighting to arduino projects
 au BufNewFile,BufRead *.pde set ft=arduino
@@ -131,15 +138,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Switch off folding
-set nofoldenable
-
-" Enable syntax highlighting
-" let g:syntastic_enable_signs=1
-" let g:syntastic_quiet_warnings=1
-
-" open files in split
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
+"set nofoldenable
 
 map <C-\> :tnext<CR>
 
