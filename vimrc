@@ -18,6 +18,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
 
+"NERDTree
+let g:NERDTreeShowHidden=1
+
 set laststatus=2
 
 set statusline=
@@ -31,6 +34,7 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set expandtab
+
 
 set ruler
 set number
