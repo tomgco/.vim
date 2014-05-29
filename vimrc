@@ -12,6 +12,10 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" Ternjs
+let g:tern_show_argument_hints='on_hold'
+let g:tern_show_signature_in_pum=1
+
 " Linting
  " let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
