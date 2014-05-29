@@ -1,6 +1,9 @@
 set nocompatible
 execute pathogen#infect()
 
+let base16colorspace=256
+set t_Co=256
+
 "Omni stuff
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -10,8 +13,10 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Linting
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+ " let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
 
 set laststatus=2
 
@@ -29,6 +34,8 @@ set expandtab
 
 set ruler
 set number
+set relativenumber
+set colorcolumn=80
 
 set list
 set spell
@@ -86,7 +93,7 @@ map <leader>e :tabedit! ~/.vim/vimrc<cr>
 map <leader>z :tabedit! ~/.zshrc<cr>
 
 " add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+"au BufNewFile,BufRead *.json set ft=javascript
 
 " add c++ highlighting to arduino projects
 au BufNewFile,BufRead *.pde set ft=arduino
@@ -131,21 +138,15 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Switch off folding
-set nofoldenable
-
-" Enable syntax highlighting
-" let g:syntastic_enable_signs=1
-" let g:syntastic_quiet_warnings=1
-
-" open files in split
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
+"set nofoldenable
 
 map <C-\> :tnext<CR>
 
+let NERDTreeShowHidden=1
+
 " Command-/ to toggle comments
-map <D-/> <plug>NERDCommenterToggle
-imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+map <C-/> <plug>NERDCommenterToggle
+imap <C-/> <Esc><plug>NERDCommenterToggle<CR>i
 
 syntax enable
 set background=dark
