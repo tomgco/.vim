@@ -20,7 +20,7 @@ let g:tern_show_signature_in_pum=1
  " let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
+"let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
 
 "NERDTree
 let g:NERDTreeShowHidden=1
@@ -67,7 +67,7 @@ endif
 let mapleader = ","
 let g:mapleader = ","
 
-set listchars=tab:▸\ ,trail:☠
+set listchars=tab:▸\ ,trail:« "☠
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -119,7 +119,7 @@ map <leader>q :bd!<cr>
 map <leader>] :bn<cr>
 map <leader>[ :bp<cr>
 
-" Git 
+" Git
 " map <leader>c :Gwrite<cr>:Gcommit<cr>
 
 " Stop arrow keys
@@ -150,7 +150,11 @@ autocmd BufWinLeave * call clearmatches()
 
 map <C-\> :tnext<CR>
 
+
+" NERDTree
 let NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeDirArrows=0
 
 " Command-/ to toggle comments
 map <C-/> <plug>NERDCommenterToggle
@@ -164,3 +168,6 @@ filetype plugin on
 
 " When vimrc is edited, reload it
 autocmd! BufWritePost vimrc source ~/.vim/vimrc
+
+"Indent Fixes issues with utf-8 buffer errors on chrome book.
+" let g:indentLine_char = '|'
