@@ -34,29 +34,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)
 
-set tabstop=2
-set shiftwidth=2
-set autoindent
-set expandtab
-
-
-set ruler
-set number
-set relativenumber
-set colorcolumn=80
-
-set list
-set spell
-set linespace=1
-set visualbell
-set nobackup
-set mouse=a
-" Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
 " Remember last location in file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -165,9 +142,49 @@ set background=dark
 colorscheme base16-eighties
 
 filetype plugin on
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1,
+      \ 'dos' : 1,
+      \}
 
 " When vimrc is edited, reload it
 autocmd! BufWritePost vimrc source ~/.vim/vimrc
 
 "Indent Fixes issues with utf-8 buffer errors on chrome book.
 " let g:indentLine_char = '|'
+set autoindent
+set tabstop=2 "Usually 2 but TSL
+set shiftwidth=2 "Usually 2 but TSL
+set expandtab
+set synmaxcol=200
+
+" Handle formatting for GO lang
+autocmd Filetype go setlocal ts=2 sts=2 sw=2 noexpandtab
+
+set ruler
+set number
+set relativenumber
+set colorcolumn=80
+set textwidth=0 " Do not wrap lines.
+set nowrap
+
+set list
+set spell
+set linespace=1
+set visualbell
+set nobackup
+set mouse=a
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
