@@ -1,5 +1,13 @@
 set nocompatible
 execute pathogen#infect()
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|public$|log\|tmp\|coverage\|node_modules$',
+    \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.log$|\.tar.gz$|.zip$|.swp$'
+    \ }
+
+let g:racer_cmd = "/Users/tomgco/dot-files/.vim/bundle/racer/target/release/racer"
+let $RUST_SRC_PATH="/usr/local/src/rust/src/src"
 
 let base16colorspace=256
 set t_Co=256
@@ -19,7 +27,7 @@ let g:tern_show_signature_in_pum=1
 " Linting
  " let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 "let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
 
 "NERDTree
