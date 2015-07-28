@@ -6,8 +6,8 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.log$|\.tar.gz$|.zip$|.swp$'
     \ }
 
-let g:racer_cmd = "/Users/tomgco/dot-files/.vim/bundle/racer/target/release/racer"
-let $RUST_SRC_PATH="/usr/local/src/rust/src/src"
+" let g:racer_cmd = "/Users/tomgco/dot-files/.vim/bundle/racer/target/release/racer"
+" let $RUST_SRC_PATH="/usr/local/src/rust/src/src"
 
 let base16colorspace=256
 set t_Co=256
