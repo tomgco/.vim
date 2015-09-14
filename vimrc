@@ -2,8 +2,8 @@ set nocompatible
 execute pathogen#infect()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|public$|log\|tmp\|coverage\|node_modules$',
-    \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.log$|\.tar.gz$|.zip$|.swp$'
+    \ 'dir':  '\.git$\|public$|log\|tmp\|target$\|coverage\|node_modules$',
+    \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.log$|\.tar.gz$|.zip$|.swp$|\.lock$'
     \ }
 
 " let g:racer_cmd = "/Users/tomgco/dot-files/.vim/bundle/racer/target/release/racer"
