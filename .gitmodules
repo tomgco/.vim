@@ -1,69 +1,69 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/textile"]
 	path = bundle/textile
-	url = git://github.com/timcharper/textile.vim.git
+	url = https://github.com/timcharper/textile.vim.git
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
-	url = git://github.com/tpope/vim-git.git
+	url = https://github.com/tpope/vim-git.git
 [submodule "bundle/vim-haml"]
 	path = bundle/vim-haml
-	url = git://github.com/tpope/vim-haml.git
+	url = https://github.com/tpope/vim-haml.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
+	url = https://github.com/tpope/vim-markdown.git
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
-	url = git://github.com/tpope/vim-repeat.git
+	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
-	url = git://github.com/tsaleh/vim-align.git
+	url = https://github.com/tsaleh/vim-align.git
 [submodule "bundle/vim-supertab"]
 	path = bundle/vim-supertab
-	url = git://github.com/tsaleh/vim-supertab.git
+	url = https://github.com/tsaleh/vim-supertab.git
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
-	url = git://github.com/pangloss/vim-javascript.git
+	url = https://github.com/pangloss/vim-javascript.git
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
-	url = git://github.com/digitaltoad/vim-jade.git
+	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "bundle/jslint"]
 	path = bundle/jslint
-	url = git://github.com/hallettj/jslint.vim.git
+	url = https://github.com/hallettj/jslint.vim.git
 [submodule "bundle/vim-syntastic"]
 	path = bundle/vim-syntastic
-	url = git://github.com/grayrest/vim-syntastic.git
+	url = https://github.com/grayrest/vim-syntastic.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
+	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/taglist"]
 	path = bundle/taglist
-	url = git://github.com/vim-scripts/taglist.vim.git
+	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/vim-taglist-plus"]
 	path = bundle/vim-taglist-plus
-	url = git://github.com/int3/vim-taglist-plus.git
+	url = https://github.com/int3/vim-taglist-plus.git
 [submodule "bundle/jshint"]
 	path = bundle/jshint
-	url = git://github.com/walm/jshint.vim.git
+	url = https://github.com/walm/jshint.vim.git
 [submodule "bundle/vim-jslint"]
 	path = bundle/vim-jslint
-	url = git://github.com/wookiehangover/jshint.vim.git
+	url = https://github.com/wookiehangover/jshint.vim.git
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
