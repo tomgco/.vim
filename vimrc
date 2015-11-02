@@ -30,9 +30,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_check_on_open = 0
 "let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
 
-"NERDTree
-let g:NERDTreeShowHidden=1
-
 set laststatus=2
 
 set statusline=
@@ -134,7 +131,6 @@ autocmd BufWinLeave * call clearmatches()
 "set nofoldenable
 
 map <C-\> :tnext<CR>
-
 
 " NERDTree
 let NERDTreeShowHidden=1
