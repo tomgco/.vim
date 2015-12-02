@@ -168,11 +168,17 @@ autocmd! BufWritePost vimrc source ~/.vim/vimrc
 set autoindent
 set tabstop=2 "Usually 2 but TSL
 set shiftwidth=2 "Usually 2 but TSL
-set expandtab
 set synmaxcol=200
 
 " Handle formatting for GO lang
 autocmd Filetype go setlocal ts=2 sts=2 sw=2 noexpandtab
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+
+set foldmethod=syntax
+set foldnestmax=4
+set foldminlines=3
+set foldlevel=1
 
 set ruler
 set number
@@ -180,6 +186,7 @@ set relativenumber
 set colorcolumn=80
 set textwidth=0 " Do not wrap lines.
 set nowrap
+set expandtab
 
 set list
 set spell
