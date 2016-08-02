@@ -102,10 +102,10 @@
 	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule "bundle/rust.vim"]
 	path = bundle/rust.vim
-	url = git@github.com:rust-lang/rust.vim.git
+	url = https://github.com/rust-lang/rust.vim.git
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
-	url = git@github.com:tpope/vim-commentary.git
+	url = https://github.com/tpope/vim-commentary.git
 [submodule "bundle/vim-mustache-handlebars"]
 	path = bundle/vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
@@ -114,4 +114,4 @@
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/racer"]
 	path = bundle/racer
-	url = git@github.com:phildawes/racer.git
+	url = https://github.com/phildawes/racer.git
