@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': '(./install.py && sh -c ''cd third_party/ycmd/third_party/tern_runtime && yarn install --production'')' }
+Plug 'Valloric/YouCompleteMe', { 'do': '(./install.py --go-completer --js-completer  && sh -c ''cd third_party/ycmd/third_party/tern_runtime && yarn install --production'')' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
