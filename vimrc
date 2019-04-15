@@ -1,8 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': '(./install.py --go-completer --js-completer  && sh -c ''cd third_party/ycmd/third_party/tern_runtime && yarn install --production'')' }
+Plug 'Valloric/YouCompleteMe', { 'do': '(./install.py --rust-completer --go-completer --js-completer  && sh -c ''cd third_party/ycmd/third_party/tern_runtime && yarn install --production'')' }
 Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
+function FixupBase16(info)
+    !sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' ~/.vim/plugged/base16-vim/colors/*.vim
+endfunction
+Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
@@ -23,6 +26,7 @@ Plug 'tsaleh/vim-align'
 Plug 'stephpy/vim-yaml'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -44,7 +48,7 @@ let g:tern_show_signature_in_pum=1
 " Linting
 " let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 " let g:syntastic_javascript_checkers = ['jshint', 'eslint']
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['semistandard']
 let g:syntastic_check_on_open = 0
 " let g:syntastic_debug = 3
 "let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
@@ -152,7 +156,7 @@ set expandtab
 set clipboard=unnamed
 set list
 set listchars=tab:▸\ ,eol:$
-set spell
+" set spell
 set linespace=1
 set visualbell
 set nobackup
