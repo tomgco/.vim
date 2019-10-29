@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': '(./install.py --rust-completer --go-completer --js-completer  && sh -c ''cd third_party/ycmd/third_party/tern_runtime && yarn install --production'')' }
+Plug 'Valloric/YouCompleteMe', { 'do': '(./install.py --rust-completer --go-completer --js-completer && sh -c ''cd third_party/ycmd/third_party/tern_runtime && yarn install --production'')' }
 Plug 'airblade/vim-gitgutter'
 function FixupBase16(info)
     !sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' ~/.vim/plugged/base16-vim/colors/*.vim
@@ -9,13 +9,12 @@ Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/JavaScript-Indent'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-" Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
+" Plug 'scrooloose/syntastic'
 Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-git'
@@ -27,10 +26,16 @@ Plug 'stephpy/vim-yaml'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'hashivim/vim-terraform'
+Plug 'dense-analysis/ale'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
-let base16colorspace=256
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 set t_Co=256
 
 "Omni stuff
@@ -48,11 +53,35 @@ let g:tern_show_signature_in_pum=1
 " Linting
 " let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 " let g:syntastic_javascript_checkers = ['jshint', 'eslint']
-let g:syntastic_javascript_checkers = ['semistandard']
-let g:syntastic_check_on_open = 0
+"let g:syntastic_javascript_checkers = ['semistandard']
+"let g:syntastic_check_on_open = 0
 " let g:syntastic_debug = 3
 "let g:syntastic_javascript_eslint_conf = '$HOME/.eslintrc'
 "
+
+" ale
+" \   'javascript': ['prettier'],
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'json': ['prettier'],
+\   'typescript': ['eslint'],
+\}
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'eslint'],
+\}
+let g:ale_typescript_tslint_use_global = 0
+let g:ale_typescript_tslint_config_path = ''
+let g:ale_linters_ignore = {'typescript': ['tslint']}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 0
+let g:ale_lint_delay = 200
+let g:ale_sign_error = '✖' " looks nicer than the default >>
+let g:ale_sign_warning = '⚑'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_set_highlights = 0
+
+
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|public$|log\|tmp\|target$\|coverage\|node_modules$',
     \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.log$|\.tar.gz$|.zip$|.swp$|\.lock$'
@@ -63,7 +92,6 @@ set laststatus=2
 set statusline=
 set statusline+=%n\ %f\ %2*%m\ %1*%h
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)
 
@@ -108,10 +136,11 @@ map <C-/> <plug>NERDCommenterToggle
 imap <C-/> <Esc><plug>NERDCommenterToggle<CR>i
 
 syntax enable
-set background=dark
-colorscheme base16-eighties
+" set background=dark
+" colorscheme base16-eighties
 
 filetype plugin on
+let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,
